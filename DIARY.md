@@ -36,3 +36,7 @@ OK, now my program has written its first poem, and I am seeing a few bugs that I
 4. The two-dictionary approach is awkward. I will be better off finding a way to organize all the words into a single entity.
 
 Still, this is great progress! I'm excited to keep working on this project.
+
+Two notes:
+1. I realize now why some unstressed words are getting miscategorized: The program is written so that the word is considered unstressed if the stress of the first syllable is given as 0, stressed if otherwise. But for a lot of words, the stress of the first syllable is given as 2, meaning "secondary stress" - so I need to rewrite the function accordingly.
+2. I still need to adjust the poem-writing function so that it doesn't end lines with words of too many syllables.

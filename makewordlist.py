@@ -1,7 +1,6 @@
 import re
-from random import randint
 
-with open('ef_list.txt') as f:
+with open('better_list.txt') as f:
     ef_list = f.read().splitlines()
 
 with open('cmu_list.txt') as f:
