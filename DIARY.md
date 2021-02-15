@@ -16,3 +16,23 @@ The "makewordlist.py" script now writes its output to a CSV file, which I now ha
 1. Import the CSV file and turn it into a list of lists, where each list is a word, its syllable count and its stress.
 2. Divide the list into two: stressed and unstressed.
 3. Make the two lists into dictionaries, where the word is the key and the syllable count is the value.
+
+OK, that's done. The next task is to write the function that actually writes a line of poetry. But first, a few interesting insights:
+
+1. Of the 998 words in my list, only 174 are unstressed.
+2. Among the stressed words, 470 (more than half) are one syllable, 247 are two syllables and 85 are three syllables.
+3. Unstressed words are mostly two syllables, although 40 are three syllables and 26 are two syllables.
+4. The one six syllable word is "responsibility".
+
+OK, I have written the function to write a line. The first line it wrote:
+"AVAILABLE COMPUTER START MACHINE"
+
+What hath God wrought??
+
+OK, now my program has written its first poem, and I am seeing a few bugs that I will need to deal with:
+1. 1000 words is not enough words! Even in the space of fourteen lines I am getting some awkward repeats.
+2. Some of the words are misclassified - "DECADE", for instance, is listed under "unstressed".
+3. The writeline function is written so that, if a word is to be the last word in the line, it is not constrained to the correct number of syllables. That will be easy to fix.
+4. The two-dictionary approach is awkward. I will be better off finding a way to organize all the words into a single entity.
+
+Still, this is great progress! I'm excited to keep working on this project.
