@@ -1,17 +1,39 @@
+import random
+
+with open("word_database.csv") as f:
+    lines = f.readlines()
+
+database = []
+
+for line in lines:
+    newline = line.rstrip().split(",")
+    database.append(newline)
+
+stressed = {}
+unstressed = {}
+
+for line in database:
+    if (line[2] == "True"):
+        stressed[line[0]] = int(line[1])
+    else:
+        unstressed[line[0]] = int(line[1])
+
 def write_line():
     sylls_left = 10
-    rand_range = len(database)
     line = ""
+    this_word = ""
     while sylls_left > 0:
         if sylls_left % 2 == 0:
-            stress = False
+            this_word = random.choice(list(unstressed))
+            line += f"{this_word} "
+            sylls_left -= unstressed[this_word]
         else:
-            stress = True
-        rand_num = randint(0,rand_range - 1)
-        choice = database[rand_num].split(",")
-        print(choice)
-        print(stress)
-        if (int(choice[1]) < sylls_left) and (stress == bool(choice[2])):
-            line += choice[0]
-            sylls_left -= int(choice[1])
+            this_word = random.choice(list(stressed))
+            line += f"{this_word} "
+            sylls_left -= stressed[this_word]
     print(line)
+
+def write_poem(length):
+    for i in range(1,length):
+        write_line()
+        
